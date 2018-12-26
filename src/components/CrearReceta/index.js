@@ -7,11 +7,14 @@ import './style.css';
 class CrearReceta extends Component {
 
   constructor(props){
+
     
     super(props);
        this.state = {
           open: false,
     };
+
+    this.ingredient={};
 
     this.firebase = new FireBaseDB();
     this.firebase.recipeModel.on('value', (d) => {
@@ -23,6 +26,16 @@ class CrearReceta extends Component {
 
       console.log(d.key);
     })
+
+    this.firebase.ingredientModel.on('value', (d) => {
+
+      console.log(d.val());
+    })
+
+    this.firebase.ingredientModel.on('child_added', (d) => {
+
+      console.log(d.key);
+    })
   }
 
   getRecipentName(e){
@@ -30,6 +43,24 @@ class CrearReceta extends Component {
     this.recipentName = e.target.value;
     
   }
+
+  getIngredientName(e){
+    this.ingredient.name = e.target.value;
+  }
+
+  getIngredientPrice(e){
+    this.ingredient.price = e.target.value;
+  }
+
+
+  getIngredientMeasurement(e){
+    this.ingredient.measurement = e.target.value;
+  }
+
+  createIngredient(){
+    this.firebase.ingredientModel.push().set(this.ingredient);
+  }
+
 
   addRecipent(){
 
@@ -90,6 +121,12 @@ class CrearReceta extends Component {
                 </form>
                  <button type="button" className='submit' onClick={() => this.addRecipent()} >Crear Receta</button>
             </Modal>
+
+              <input type="text" placeholder="ingredient name" onChange={(e) => this.getIngredientName(e)} ></input>
+              <input type="text"  placeholder="ingredient price"  onChange={(e) => this.getIngredientPrice(e)} ></input>
+              <input type="text"  placeholder="ingredient measurement"  onChange={(e) => this.getIngredientMeasurement(e)} ></input>
+                <button type="button" onClick={() => this.createIngredient()} >Crear Ingrediente</button>
+
           </div>
         );
       }

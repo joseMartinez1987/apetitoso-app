@@ -8,6 +8,7 @@
 
       this.app = firebase.initializeApp(DB_CONFIG);
       this.recipeModel = this.app.database().ref().child('recipe');
+      this.ingredientModel = this.app.database().ref().child('ingredient');
 
     }
 
