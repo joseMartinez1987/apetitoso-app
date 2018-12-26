@@ -1,0 +1,19 @@
+.producto-gramo input, select {
+margin:     15px 10px 5px 0;
+}
+
+.styles_closeButton__20ID4{
+    right: 0;
+    top: 0;
+}
+.preparacion {
+    font-size: 25px;
+    text-align: center;
+    color:grey;
+}
+label {
+    margin-right: 10px;
+}
+.submit {
+    margin-top: 15px;
+}

@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "firebase": "^5.7.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-firebase": "^2.2.8",
+    "react-responsive-modal": "^3.5.1",
     "react-scripts": "2.1.2"
   },
   "scripts": {
