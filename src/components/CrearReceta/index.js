@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Modal from 'react-responsive-modal';
-import FireBaseDB from './FireBaseDB'
+import FireBaseDB from './../FireBaseDB'; 
 import './style.css';
 
 
@@ -44,22 +44,6 @@ class CrearReceta extends Component {
     
   }
 
-  getIngredientName(e){
-    this.ingredient.name = e.target.value;
-  }
-
-  getIngredientPrice(e){
-    this.ingredient.price = e.target.value;
-  }
-
-
-  getIngredientMeasurement(e){
-    this.ingredient.measurement = e.target.value;
-  }
-
-  createIngredient(){
-    this.firebase.ingredientModel.push().set(this.ingredient);
-  }
 
 
   addRecipent(){
@@ -121,12 +105,6 @@ class CrearReceta extends Component {
                 </form>
                  <button type="button" className='submit' onClick={() => this.addRecipent()} >Crear Receta</button>
             </Modal>
-
-              <input type="text" placeholder="ingredient name" onChange={(e) => this.getIngredientName(e)} ></input>
-              <input type="text"  placeholder="ingredient price"  onChange={(e) => this.getIngredientPrice(e)} ></input>
-              <input type="text"  placeholder="ingredient measurement"  onChange={(e) => this.getIngredientMeasurement(e)} ></input>
-                <button type="button" onClick={() => this.createIngredient()} >Crear Ingrediente</button>
-
           </div>
         );
       }

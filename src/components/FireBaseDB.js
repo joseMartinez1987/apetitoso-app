@@ -1,5 +1,5 @@
   import firebase from 'firebase'
-  import {DB_CONFIG} from './../../../src/config/config';
+  import {DB_CONFIG} from './../../src/config/config';
 
   export default class FireBaseDB{
 
